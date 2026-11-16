@@ -1,7 +1,7 @@
 name: Build Aplikasi Desktop
 
 on:
-  workflow_dispatch: # Bisa dijalankan manual lewat tombol di GitHub
+  workflow_dispatch:
   push:
     tags:
       - 'v*'
@@ -20,8 +20,7 @@ jobs:
 
       - name: Instal Paket & Build EXE
         run: |
-          npm install
-          npm install --save-dev electron electron-builder
+          npm install --legacy-peer-deps
           npm run electron:build
 
       - name: Upload Hasil Installer (.exe)
