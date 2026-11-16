@@ -1,0 +1,31 @@
+name: Build Aplikasi Desktop
+
+on:
+  workflow_dispatch: # Bisa dijalankan manual lewat tombol di GitHub
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Ambil Kode
+        uses: actions/checkout@v4
+
+      - name: Siapkan Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instal Paket & Build EXE
+        run: |
+          npm install
+          npm install --save-dev electron electron-builder
+          npm run electron:build
+
+      - name: Upload Hasil Installer (.exe)
+        uses: actions/upload-artifact@v4
+        with:
+          name: LaporanSPJ-Windows-Installer
+          path: dist/*.exe
