@@ -1,0 +1,6 @@
+{
+  "name": "Generator Laporan SPJ Kendaraan Dinas",
+  "description": "Aplikasi otomatis pembuat laporan penggunaan kendaraan dinas dan peralatan (SPJ Driver) Dinas Bina Marga DKI Jakarta.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
